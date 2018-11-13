@@ -25,6 +25,10 @@
   color: #3a2510;
 }
 
+.description {
+  margin-bottom: 1em;
+}
+
 .jumbotron {
   background: #debd9d;
   color: #3a2510;
