@@ -8,7 +8,7 @@ express()
   .set('views', path.join(__dirname, 'views'))
   .set('view engine', 'ejs')
   .get('/apple-app-site-association', (req, res) => {
-    const aasa = fs.readFileSync('public/apple-app-site-association');
+    const aasa = fs.readFileSync(path.join(__dirname, 'apple-app-site-association'));
     res.set('Content-Type', 'application/json');
     res.status(200).send(aasa);
   })
