@@ -1,4 +1,5 @@
 const express = require('express');
+const fs = require('fs');
 const path = require('path');
 const PORT = process.env.PORT || 5000;
 
@@ -6,6 +7,11 @@ express()
   .use(express.static(path.join(__dirname, 'public')))
   .set('views', path.join(__dirname, 'views'))
   .set('view engine', 'ejs')
+  .get('/apple-app-site-association', (req, res) => {
+    const aasa = fs.readFileSync('public/apple-app-site-association');
+    res.set('Content-Type', 'application/json');
+    res.status(200).send(aasa);
+  })
   .get('/', (req, res) => res.render('pages/index'))
   .get('/white', (req, res) =>
     res.render('pages/cat', {
