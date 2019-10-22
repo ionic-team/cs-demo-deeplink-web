@@ -5,17 +5,19 @@
         <a href="/"><span class="glyphicon glyphicon-home"></span> Home</a>
       </li>
       <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="glyphicon glyphicon-info-sign"></span> Types of Tea <span class="caret"></span></a>
-          <ul class="dropdown-menu" role="menu">
-            <li><a href="/white">White</a></li>
-            <li><a href="/yellow">Yellow</a></li>
-            <li><a href="/green">Green</a></li>
-            <li><a href="/oolong">Oolong</a></li>
-            <li><a href="/black">Black</a></li>
-            <li><a href="/dark">Dark</a></li>
-            <li><a href="/puer">Puer</a></li>
-            <li><a href="/herbal">Herbal</a></li>
-          </ul>
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"
+          ><span class="glyphicon glyphicon-info-sign"></span> Types of Tea <span class="caret"></span
+        ></a>
+        <ul class="dropdown-menu" role="menu">
+          <li><a href="/white" onclick="postMessage('I\'m a little teapot')">White</a></li>
+          <li><a href="/yellow" onclick="postMessage('short and stout')">Yellow</a></li>
+          <li><a href="/green" onclick="postMessage('here is my handle')">Green</a></li>
+          <li><a href="/oolong" onclick="postMessage('here is my spout')">Oolong</a></li>
+          <li><a href="/black" onclick="postMessage('when I get all steamed up')">Black</a></li>
+          <li><a href="/dark" onclick="postMessage('here me shout')">Dark</a></li>
+          <li><a href="/puer" onclick="postMessage('tip me over')">Puer</a></li>
+          <li><a href="/herbal" onclick="postMessage('and pour me out')">Herbal</a></li>
+        </ul>
       </li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
@@ -25,3 +27,13 @@
     </ul>
   </div>
 </nav>
+
+<script>
+  function postMessage(message) {
+    const messageObj = { message: message };
+    const stringifiedMessageObj = JSON.stringify(messageObj);
+    if (window.webkit && window.webkit.messageHandlers) {
+      window.webkit.messageHandlers.cordova_iab.postMessage(stringifiedMessageObj);
+    }
+  }
+</script>
