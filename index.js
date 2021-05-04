@@ -9,7 +9,7 @@ express()
   .set('view engine', 'ejs')
   .get('/.well-known/apple-app-site-association', (req, res) => {
     const aasa = fs.readFileSync(path.join(__dirname, '.well-known/apple-app-site-association'));
-    res.set('Content-Type', 'application/json');
+    res.set('Content-Type', 'application/pkcs7-mime');
     res.status(200).send(aasa);
   })
   .get('/', (req, res) => res.render('pages/index'))
