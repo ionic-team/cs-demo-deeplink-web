@@ -1,10 +1,13 @@
 {
   "applinks": {
-    "apps": [],
     "details": [
       {
-        "appID": "9YN2HU59K8.io.ionic.csdeeplinkdemo",
-        "paths": [ "*"]
+        "appIDs": ["9YN2HU59K8.io.ionic.csdeeplinkdemo"],
+        "components": [
+               {
+                  "/": "*"
+               }
+        ]
       }
     ]
   }
