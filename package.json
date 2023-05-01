@@ -27,5 +27,8 @@
     "heroku",
     "express"
   ],
-  "license": "MIT"
+  "license": "MIT",
+  "volta": {
+    "node": "10.24.1"
+  }
 }
